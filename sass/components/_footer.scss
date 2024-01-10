@@ -7,6 +7,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 1rem;
+    margin-bottom: 3.4rem;
   }
   &__logo {
     width: 8rem;
@@ -18,9 +21,33 @@
     list-style: none;
     display: flex;
     align-items: center;
-
-    & li:not(:last-child) {
+    flex-wrap: wrap;
+    // column-gap: 6.3rem;
+    // padding-right: 6rem;
+    & li {
       margin-right: 6.3rem;
     }
+
+    // & li:not(:last-child) {
+    //   margin-right: 6.3rem;
+    // }
+  }
+
+  &__policies {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    flex-wrap: wrap;
+    row-gap: 2rem;
+    font-size: 2rem;
+  }
+  &__policies--nav {
+    display: flex;
+    align-items: center;
+    column-gap: 4.3rem;
+    row-gap: 1rem;
+    list-style: none;
+    flex-wrap: wrap;
   }
 }
