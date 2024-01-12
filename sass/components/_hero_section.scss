@@ -1,0 +1,14 @@
+.hero {
+  width: 100%;
+  height: 83rem;
+
+  &__background {
+    max-width: 100%;
+    margin: 0 auto; /* Center the image */
+    img {
+      width: 100%;
+      height: auto;
+      display: block; /* Remove extra space below inline images */
+    }
+  }
+}
