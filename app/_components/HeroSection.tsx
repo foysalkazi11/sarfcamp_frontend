@@ -5,7 +5,7 @@ import React from "react";
 type HeroSectionProps = {
   imgSrc?: string;
   headLines?: React.ReactNode | string;
-  theme?: "turquoise" | "black";
+  theme?: "turquoise" | "black" | "orange";
 };
 const HeroSection = ({
   headLines = "headLines",
@@ -20,9 +20,11 @@ const HeroSection = ({
       <div className={`hero__headline hero__headline--${theme}`}>
         {headLines}
       </div>
-      <Link href={"/events"}>
-        <button className={`btn btn--medium btn-${theme}`}>BOOK NOW</button>
-      </Link>
+
+      <button className={`btn btn--medium btn--${theme}`}>
+        <Link href={"/events"}>BOOK NOW</Link>
+      </button>
+
       <img
         className={`hero__logo hero__logo--${theme}`}
         src="/assets/logo.svg"
