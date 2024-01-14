@@ -1,13 +1,13 @@
-import Image from "next/image";
-import HeroSection from "./_components/HeroSection";
-import InfoBlock from "./_components/InfoBlock";
+import React from "react";
+import HeroSection from "../_components/HeroSection";
+import InfoBlock from "../_components/InfoBlock";
 
-export default function Home() {
+const Experience = () => {
   const headLines = (
     <>
-      <h1>barrel.</h1>
+      <h1>discover.</h1>
       <h1>your.</h1>
-      <h1>happiness.</h1>
+      <h1>spirit.</h1>
     </>
   );
   const infoDescription = (
@@ -39,12 +39,12 @@ export default function Home() {
   return (
     <main>
       <HeroSection
-        imgSrc="/assets/jeremy-bishop-_CFv3bntQlQ-unsplash.png"
+        imgSrc="/assets/pexels-rachel-claire-4825701 1.png"
         headLines={headLines}
-        theme="turquoise"
+        theme="orange"
       />
       <InfoBlock
-        imgSrc="/assets/pexels-rachel-claire-4825701 1.png"
+        imgSrc="/assets/pexels-roberto-nickson-2631613 1.png"
         headLines={"the experience."}
         theme="orange"
         description={infoDescription}
@@ -58,4 +58,6 @@ export default function Home() {
       />
     </main>
   );
-}
+};
+
+export default Experience;

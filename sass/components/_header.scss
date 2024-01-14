@@ -9,9 +9,18 @@
   top: 0;
   left: 0;
   right: 0;
+  z-index: 10;
+
+  &--white {
+    color: white;
+  }
 
   &__logo {
     width: 5rem;
+    &--white {
+      filter: invert(100%) sepia(0%) saturate(7488%) hue-rotate(134deg)
+        brightness(106%) contrast(97%);
+    }
   }
 
   &__nav {

@@ -16,10 +16,18 @@ const navLinks = [
     slug: "/blog",
   },
 ];
-const Header = () => {
+
+type HeaderProps = {
+  theme?: "white" | "black";
+};
+const Header = ({ theme = "black" }: HeaderProps) => {
   return (
-    <header className="header">
-      <img className="header__logo" src="/assets/logo.svg" alt="logo" />
+    <header className={`header header--${theme}`}>
+      <img
+        className={`header__logo header__logo--${theme}`}
+        src="/assets/logo.svg"
+        alt="logo"
+      />
       <ul className="header__nav">
         {navLinks?.map((link) => (
           <li key={link?.slug}>
