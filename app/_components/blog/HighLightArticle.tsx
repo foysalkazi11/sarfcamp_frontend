@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
+import Button from "../Button";
+
 const HighLightArticle = () => {
   return (
     <section className="highLightArticle">
@@ -10,11 +12,11 @@ const HighLightArticle = () => {
           sunt facilis accusantium perferendis, quas molestiae atque esse sed
           incidunt eius ipsum quaerat? Ex nam architecto provident cum, in qui!
         </p>
-        <button className="btn btn--medium btn--turquoise">Read more</button>
+        <Button text="Read more" />
       </div>
       <img
         className="highLightArticle__image"
-        src="/assets/harry-holder-NbPJ8HM-w8c-unsplash 1.png"
+        src="/assets/pexels-rachel-claire-4825701 1.png"
         alt="img"
       />
     </section>

@@ -3,9 +3,9 @@ import HighLightArticle from "../_components/blog/HighLightArticle";
 
 const Blog = () => {
   return (
-    <>
+    <main className="blog-page">
       <HighLightArticle />
-    </>
+    </main>
   );
 };
 
