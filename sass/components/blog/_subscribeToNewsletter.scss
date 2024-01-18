@@ -1,0 +1,48 @@
+.newsletter {
+  width: 100%;
+  height: 19.2rem;
+  border-radius: 3.35rem;
+  background: #f1e8d9;
+  padding: 3.8rem 2.1rem 3.8rem 4.9rem;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 11rem;
+  &__info {
+    & h4 {
+      padding-bottom: 2.3rem;
+    }
+  }
+  &__subscribe {
+    display: flex;
+    align-items: center;
+  }
+  &__input {
+    border: none;
+    outline: none;
+    padding: 2rem 1.2rem 2rem 2rem;
+    border-radius: 1.8rem 0rem 0rem 1.8rem;
+    background: $light-beige;
+    width: 35rem;
+    height: 6.4rem;
+    font-size: 2rem;
+    font-weight: 400;
+    &::placeholder {
+      font-size: 2rem;
+      font-weight: 400;
+      color: #000;
+    }
+  }
+
+  &__button {
+    width: 23.2rem;
+    height: 6.4rem;
+    background-color: $turquoise;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+    border-radius: 0rem 1.8rem 1.8rem 0rem;
+    background: $turquoise;
+    padding: 2rem 5rem;
+  }
+}
