@@ -14,13 +14,15 @@ const FeaturedArticles = ({
 }: FeaturedArticlesProps) => {
   return (
     <section className="featuredArticle">
-      <h4 className="featuredArticle__headline">{headline}</h4>
-      <div className="featuredArticle__cards">
+      <h3 className="featuredArticle__headline">{headline}</h3>
+      <div className="featuredArticle__cardsContainer">
         {featuredArticles?.map((article, index) => {
           return <FeaturedArticlesCard key={index} {...article} />;
         })}
       </div>
-      <Button onClick={handleSeeMoreBtnClick} text="See more" />
+      <div className="featuredArticle__button">
+        <Button onClick={handleSeeMoreBtnClick} text="See more" />
+      </div>
     </section>
   );
 };
@@ -32,19 +34,21 @@ const FeaturedArticlesCard = ({
   title,
 }: FeaturedArticlesCardProps) => {
   return (
-    <div>
+    <div className="featuredArticle__card">
       <img className="featuredArticle__image" src={image} alt="img" />
 
       <div className="featuredArticle__info">
         <h5 className="featuredArticle__title">{title}</h5>
-        <p
-          className={`featuredArticle__dateAndPrice ${
-            price ? "featuredArticle__dateAndPrice--weight700" : ""
-          }`}
-        >
-          {date}
-        </p>
-        <p className="featuredArticle__dateAndPrice">{price}</p>
+        <div>
+          <p
+            className={`copy-small featuredArticle__dateAndPrice ${
+              price ? "featuredArticle__dateAndPrice--weight700" : ""
+            }`}
+          >
+            {date}
+          </p>
+          <p className="copy-small featuredArticle__dateAndPrice">{price}</p>
+        </div>
       </div>
     </div>
   );

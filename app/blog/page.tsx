@@ -11,7 +11,19 @@ const featureArticle: FeaturedArticlesProps = {
       image: "/assets/jeremy-bishop-_CFv3bntQlQ-unsplash.png",
       date: "Monday, June 05, 2023",
       title:
-        "surfboard shaping and design behind the scenes of crafting the perfect board",
+        "Test is flex grow properly surfboard shaping and design behind the scenes of crafting the perfect board",
+    },
+    {
+      image: "/assets/jeremy-bishop-_CFv3bntQlQ-unsplash.png",
+      date: "Monday, June 05, 2023",
+      title: "Surfing lessons in Corralejo",
+      price: "Prices starting at 580€",
+    },
+    {
+      image: "/assets/jeremy-bishop-_CFv3bntQlQ-unsplash.png",
+      date: "Monday, June 05, 2023",
+      title: "Surfing lessons in Corralejo",
+      price: "Prices starting at 580€",
     },
     {
       image: "/assets/jeremy-bishop-_CFv3bntQlQ-unsplash.png",
@@ -24,7 +36,7 @@ const featureArticle: FeaturedArticlesProps = {
 
 const Blog = () => {
   return (
-    <main className="blog-page">
+    <main className="container blog-page">
       <HighLightArticle />
       <SubscribeToNewsletter />
       <FeaturedArticles
