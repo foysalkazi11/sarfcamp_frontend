@@ -3,6 +3,7 @@ import HighLightArticle from "../_components/blog/HighLightArticle";
 import SubscribeToNewsletter from "../_components/blog/SubscribeToNewsletter";
 import FeaturedArticles from "../_components/blog/FeaturedArticles";
 import { FeaturedArticlesProps } from "@/types/types";
+import { fetchDataFormStrapi } from "@/utils/strapi.utils";
 
 const featureArticle: FeaturedArticlesProps = {
   headline: "Our featured articles",
@@ -34,7 +35,12 @@ const featureArticle: FeaturedArticlesProps = {
   ],
 };
 
-const Blog = () => {
+const Blog = async () => {
+  const response = await fetchDataFormStrapi(
+    "/api/blog-articles?populate=deep"
+  );
+  console.log(response);
+
   return (
     <main className="container blog-page">
       <HighLightArticle />
