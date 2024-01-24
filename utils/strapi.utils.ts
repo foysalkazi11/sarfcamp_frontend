@@ -29,3 +29,18 @@ export function arrangeInfoBlockData(response: { [key: string]: any }) {
 
   return arrangeData;
 }
+export function arrangeBlogData(response: { [key: string]: any }) {
+  const arrangeData = response.map((article: any) => {
+    const image = article?.attributes?.featuredImage?.data?.attributes;
+    return {
+      ...article?.attributes,
+      id: article?.id,
+      featuredImage: {
+        url: BASE_URL + image?.url,
+        hash: image?.hash,
+      },
+    };
+  });
+
+  return arrangeData;
+}

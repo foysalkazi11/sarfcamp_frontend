@@ -1,14 +1,17 @@
 // blogs
 
 export type FeaturedArticlesCardProps = {
-  image?: string;
-  title?: string;
+  headline?: string;
+  excerpt?: string;
+  slug?: string;
+  featuredImage?: { url: string; hash: string };
+  isFeaturedArticle?: boolean;
   date?: string;
   price?: string;
 };
 
 export type FeaturedArticlesProps = {
-  headline?: string;
+  heading?: string;
   handleSeeMoreBtnClick?: () => void;
-  featuredArticles?: FeaturedArticlesCardProps[];
+  articles?: FeaturedArticlesCardProps[];
 };

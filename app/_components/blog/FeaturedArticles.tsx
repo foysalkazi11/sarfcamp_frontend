@@ -8,15 +8,15 @@ import React from "react";
 import Button from "../Button";
 
 const FeaturedArticles = ({
-  headline,
   handleSeeMoreBtnClick = () => {},
-  featuredArticles = [],
+  articles = [],
+  heading = "",
 }: FeaturedArticlesProps) => {
   return (
     <section className="featuredArticle">
-      <h3 className="featuredArticle__headline">{headline}</h3>
+      <h3 className="featuredArticle__headline">{heading}</h3>
       <div className="featuredArticle__cardsContainer">
-        {featuredArticles?.map((article, index) => {
+        {articles?.map((article, index) => {
           return <FeaturedArticlesCard key={index} {...article} />;
         })}
       </div>
@@ -28,17 +28,24 @@ const FeaturedArticles = ({
 };
 
 const FeaturedArticlesCard = ({
-  image,
   date,
   price,
-  title,
+  excerpt,
+  featuredImage,
+  headline,
+  isFeaturedArticle,
+  slug,
 }: FeaturedArticlesCardProps) => {
   return (
     <div className="featuredArticle__card">
-      <img className="featuredArticle__image" src={image} alt="img" />
+      <img
+        className="featuredArticle__image"
+        src={featuredImage?.url}
+        alt="img"
+      />
 
       <div className="featuredArticle__info">
-        <h5 className="featuredArticle__title">{title}</h5>
+        <h5 className="featuredArticle__title">{headline}</h5>
         <div>
           <p
             className={`copy-small featuredArticle__dateAndPrice ${
