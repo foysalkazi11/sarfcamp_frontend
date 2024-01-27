@@ -4,25 +4,36 @@ import {
   FeaturedArticlesCardProps,
   FeaturedArticlesProps,
 } from "@/types/types";
-import React from "react";
+import React, { useState } from "react";
 import Button from "../Button";
 
 const FeaturedArticles = ({
-  handleSeeMoreBtnClick = () => {},
   articles = [],
   heading = "",
+  numberOfItemsToShowFirstTime = 3,
 }: FeaturedArticlesProps) => {
+  const [itemNumber, setItemNumber] = useState(numberOfItemsToShowFirstTime);
+
+  const handleSeeMoreBtnClick = () => {
+    if (itemNumber + 3 > articles.length) {
+      return setItemNumber(articles.length);
+    } else {
+      return setItemNumber((pre) => pre + 3);
+    }
+  };
   return (
     <section className="featuredArticle">
       <h3 className="featuredArticle__headline">{heading}</h3>
       <div className="featuredArticle__cardsContainer">
-        {articles?.map((article, index) => {
+        {articles?.slice(0, itemNumber)?.map((article, index) => {
           return <FeaturedArticlesCard key={index} {...article} />;
         })}
       </div>
-      <div className="featuredArticle__button">
-        <Button onClick={handleSeeMoreBtnClick} text="See more" />
-      </div>
+      {articles?.length > itemNumber && (
+        <div className="featuredArticle__button">
+          <Button onClick={handleSeeMoreBtnClick} text="See more" />
+        </div>
+      )}
     </section>
   );
 };

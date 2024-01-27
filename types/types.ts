@@ -12,6 +12,6 @@ export type FeaturedArticlesCardProps = {
 
 export type FeaturedArticlesProps = {
   heading?: string;
-  handleSeeMoreBtnClick?: () => void;
+  numberOfItemsToShowFirstTime?: number;
   articles?: FeaturedArticlesCardProps[];
 };

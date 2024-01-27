@@ -39,8 +39,20 @@ export function arrangeBlogData(response: { [key: string]: any }) {
         url: BASE_URL + image?.url,
         hash: image?.hash,
       },
+      date: formatDate(article?.attributes?.publishedAt),
     };
   });
 
   return arrangeData;
+}
+
+export function formatDate(data: string) {
+  const options: any = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  const formattedDate = new Date(data).toLocaleDateString("en-US", options);
+  return formattedDate;
 }
