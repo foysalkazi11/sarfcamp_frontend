@@ -14,7 +14,7 @@ const HighLightArticle = ({
       <div className="highLightArticle__info">
         <h3>{headline}</h3>
         <p className="highLightArticle__description copy">{excerpt}</p>
-        <Button text="Read more" href={slug} />
+        <Button text="Read more" href={`/blog/${slug}`} />
       </div>
       <img
         className="highLightArticle__image"
