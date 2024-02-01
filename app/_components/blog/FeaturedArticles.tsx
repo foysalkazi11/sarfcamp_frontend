@@ -6,6 +6,7 @@ import {
 } from "@/types/types";
 import React, { useState } from "react";
 import Button from "../Button";
+import Link from "next/link";
 
 const FeaturedArticles = ({
   articles = [],
@@ -48,27 +49,29 @@ const FeaturedArticlesCard = ({
   slug,
 }: FeaturedArticlesCardProps) => {
   return (
-    <div className="featuredArticle__card">
-      <img
-        className="featuredArticle__image"
-        src={featuredImage?.url}
-        alt="img"
-      />
+    <Link href={`/blog/${slug}`}>
+      <div className="featuredArticle__card">
+        <img
+          className="featuredArticle__image"
+          src={featuredImage?.url}
+          alt="img"
+        />
 
-      <div className="featuredArticle__info">
-        <h5 className="featuredArticle__title">{headline}</h5>
-        <div>
-          <p
-            className={`copy-small featuredArticle__dateAndPrice ${
-              price ? "featuredArticle__dateAndPrice--weight700" : ""
-            }`}
-          >
-            {date}
-          </p>
-          <p className="copy-small featuredArticle__dateAndPrice">{price}</p>
+        <div className="featuredArticle__info">
+          <h5 className="featuredArticle__title">{headline}</h5>
+          <div>
+            <p
+              className={`copy-small featuredArticle__dateAndPrice ${
+                price ? "featuredArticle__dateAndPrice--weight700" : ""
+              }`}
+            >
+              {date}
+            </p>
+            <p className="copy-small featuredArticle__dateAndPrice">{price}</p>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
