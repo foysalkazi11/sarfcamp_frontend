@@ -1,4 +1,9 @@
-import { arrangeBlogData, fetchDataFormStrapi } from "@/utils/strapi.utils";
+import SingleArticleIntro from "@/app/_components/blog/SingleArticleIntro";
+import {
+  arrangeBlogData,
+  fetchDataFormStrapi,
+  formatDate,
+} from "@/utils/strapi.utils";
 import React from "react";
 
 const SingleArticle = async ({ params }: { params: { article: string } }) => {
@@ -9,7 +14,16 @@ const SingleArticle = async ({ params }: { params: { article: string } }) => {
   );
   console.log(highLightArticle);
 
-  return <div>SingleArticle{highLightArticle.headline}</div>;
+  return (
+    <main>
+      <SingleArticleIntro
+        headLines={highLightArticle?.headline}
+        author={highLightArticle?.author}
+        date={formatDate(highLightArticle?.publishedAt)}
+        imgSrc={highLightArticle?.featuredImage}
+      />
+    </main>
+  );
 };
 
 export default SingleArticle;
