@@ -1,4 +1,6 @@
-import SingleArticleIntro from "@/app/_components/blog/SingleArticleIntro";
+import ArticleOverview from "@/app/_components/singleArticle/ArticleOverview";
+import Headline from "@/app/_components/singleArticle/Headline";
+import SingleArticleIntro from "@/app/_components/singleArticle/SingleArticleIntro";
 import {
   arrangeBlogData,
   fetchDataFormStrapi,
@@ -22,6 +24,10 @@ const SingleArticle = async ({ params }: { params: { article: string } }) => {
         date={formatDate(highLightArticle?.publishedAt)}
         imgSrc={highLightArticle?.featuredImage}
       />
+      <section className="article-content">
+        <Headline headline="In this blog" />
+        <ArticleOverview />
+      </section>
     </main>
   );
 };
