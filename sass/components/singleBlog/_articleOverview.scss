@@ -1,11 +1,12 @@
 .articleOverview {
+  margin-top: 3.5rem;
+  margin-bottom: 12rem;
   &__contentBox {
-    margin-top: 3.5rem;
-    margin-bottom: 12rem;
     display: flex;
     gap: 5rem;
   }
   &__content {
+    flex: 1;
     font-size: 3rem;
   }
   &__headingLinks {
