@@ -1,6 +1,7 @@
+import FeaturedArticles from "@/app/_components/blog/FeaturedArticles";
 import ArticleContent from "@/app/_components/singleArticle/ArticleContent";
 import ArticleOverview from "@/app/_components/singleArticle/ArticleOverview";
-import Headline from "@/app/_components/singleArticle/Headline";
+import Headline from "@/app/_components/singleArticle/Heading";
 import SingleArticleIntro from "@/app/_components/singleArticle/SingleArticleIntro";
 import {
   arrangeBlogData,
@@ -12,13 +13,17 @@ import React from "react";
 const SingleArticle = async ({ params }: { params: { article: string } }) => {
   const rawData = await fetchDataFormStrapi("/api/blog-articles?populate=deep");
   const arrangeData = await arrangeBlogData(rawData);
+
   const highLightArticle: any = arrangeData?.find(
     (article: any) => article.slug === params?.article
   );
   const headingLinks = highLightArticle?.articleContent?.filter(
     (heading: any) => heading?.__component === "blog-article.headline"
   );
-  console.log(highLightArticle);
+
+  const featuredArticle: any = arrangeData?.filter(
+    (article: any) => article.slug !== params?.article
+  );
 
   return (
     <main>
@@ -38,6 +43,12 @@ const SingleArticle = async ({ params }: { params: { article: string } }) => {
         {highLightArticle?.articleContent?.map((article: any) => (
           <ArticleContent key={article?.id} component={article} />
         ))}
+
+        <FeaturedArticles
+          heading={"Our featured articles"}
+          articles={featuredArticle}
+          numberOfItemsToShowFirstTime={6}
+        />
       </section>
     </main>
   );

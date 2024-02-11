@@ -1,24 +1,25 @@
 import { getStringAfterDot } from "@/utils/helper.utils";
 import React from "react";
-import Headline from "./Headline";
+import Heading from "./Heading";
 import Paragraph from "./Paragraph";
+import ParagraphWithImage from "./ParagraphWithImage";
+import LandscapeImage from "./LandScapeImage";
 
 const ArticleContent = ({ component }: { component: any }) => {
   const componentType = getStringAfterDot(component?.__component);
   switch (componentType) {
     case "headline":
-      return <Headline headline={component?.headline} id={component?.slug} />;
+      return <Heading headline={component?.headline} id={component?.slug} />;
     case "paragraph-with-image":
-      return <p>paragraph-with-image</p>;
+      return <ParagraphWithImage {...component} />;
     case "landscape-image":
-      return <p>landscape-image</p>;
+      return <LandscapeImage {...component} />;
     case "paragraph":
       return <Paragraph text={component?.Paragraph} />;
 
     default:
-      break;
+      return null;
   }
-  return <div>ArticleContent</div>;
 };
 
 export default ArticleContent;

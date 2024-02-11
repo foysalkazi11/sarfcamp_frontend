@@ -1,0 +1,71 @@
+.articleComponentHeading {
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+.paragraphWithImage {
+  width: 100%;
+  height: auto;
+  display: flex;
+  gap: 4rem;
+  margin-bottom: 6rem;
+
+  &--imageShowLeft {
+    flex-direction: row-reverse;
+  }
+
+  &__paragraph {
+    width: 40%;
+
+    &--imageProrate {
+      width: 70%;
+    }
+  }
+  &__image {
+    width: 60%;
+
+    &--imageProrate {
+      width: 30%;
+    }
+    img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    span {
+      display: block;
+      margin-top: 1rem;
+      color: #686868;
+    }
+  }
+}
+
+.articleComponentParagraph {
+  margin-bottom: 6rem;
+  & ul {
+    margin-top: 2rem;
+
+    & li {
+      margin-left: 3rem;
+    }
+  }
+}
+.articleComponentLandscapeImage {
+  width: 100%;
+  max-width: 62%;
+  margin: 0 auto;
+  margin-bottom: 6rem;
+
+  img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  span {
+    display: block;
+    margin-top: 1rem;
+    color: #686868;
+  }
+}

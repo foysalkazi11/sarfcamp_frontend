@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = process.env.STRAPI_URL || "http://127.0.0.1:1337";
+export const BASE_URL = process.env.STRAPI_URL || "http://127.0.0.1:1337";
 
 export async function fetchDataFormStrapi(route: string) {
   try {
@@ -22,7 +22,7 @@ export function arrangeInfoBlockData(response: { [key: string]: any }) {
       ...infoBlock?.attributes,
       image: {
         url: BASE_URL + image?.url,
-        hash: image?.hash,
+        hash: BASE_URL + image?.hash,
       },
     };
   });
@@ -56,3 +56,16 @@ export function formatDate(data: string) {
   const formattedDate = new Date(data).toLocaleDateString("en-US", options);
   return formattedDate;
 }
+
+export const extractImageUrl = (
+  imageData: any
+): {
+  hash: string;
+  url: string;
+} => {
+  const imaObj = {
+    hash: BASE_URL + imageData?.data?.attributes?.hash,
+    url: BASE_URL + imageData?.data?.attributes?.url,
+  };
+  return imaObj;
+};
