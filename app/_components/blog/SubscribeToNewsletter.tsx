@@ -1,4 +1,5 @@
 "use client";
+import axios from "axios";
 import React, { useState } from "react";
 
 const SubscribeToNewsletter = () => {
@@ -8,12 +9,22 @@ const SubscribeToNewsletter = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (email.length) {
-      setHasSignedUp(true);
+      try {
+        await axios.post(
+          (process.env.NEXT_PUBLIC_STRAPI_URL +
+            "/api/newsletter-signups") as string,
+          {
+            data: { email },
+          }
+        );
+        setHasSignedUp(true);
+      } catch (error) {
+        console.log(error);
+      }
     }
-    console.log(e);
   };
   return (
     <section className="newsletter">

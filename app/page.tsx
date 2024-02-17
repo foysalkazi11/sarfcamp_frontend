@@ -4,6 +4,7 @@ import {
 } from "@/utils/strapi.utils";
 import HeroSection from "./_components/HeroSection";
 import InfoBlock from "./_components/InfoBlock";
+import TheBlog from "./_components/blog/TheBlog";
 
 export default async function Home() {
   const response = await fetchDataFormStrapi(
@@ -40,6 +41,7 @@ export default async function Home() {
           />
         );
       })}
+      <TheBlog />
     </main>
   );
 }
