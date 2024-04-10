@@ -57,9 +57,16 @@ const SingleArticle = async ({ params }: { params: { article: string } }) => {
 export default SingleArticle;
 
 export async function generateStaticParams() {
-  const rawData = await fetchDataFormStrapi("/api/blog-articles");
+  try {
+    const rawData = await fetchDataFormStrapi("/api/blog-articles");
 
   return rawData.map((post: any) => ({
     article: post?.attributes?.slug,
   }));
+  } catch (error) {
+    console.log("Error generating article params" + error);
+    
+  }
 }
+
+export const revalidate = 300;

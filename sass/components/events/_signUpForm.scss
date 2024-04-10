@@ -1,5 +1,49 @@
 .signUpForm {
-  width: 45%;
+  position: relative;
+  width: 44%;
   min-height: 300px;
-  border: 1px solid saddlebrown;
+  // border: 1px solid saddlebrown;
+  &__inputContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    & .btn{
+      margin-top: 2rem;
+    }
+  }
+  &__nameInputContainer{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+     & .inputContainer{
+      width: 48%;
+     }
+  }
+
+  &__errorMessage{
+    position: absolute;
+    
+    color: $error;
+    top: -2rem;
+
+  }
+
+}
+.signUpFormPricing{
+  margin-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+
+  &__pricePrefix{
+    display: inline-block;
+    font-weight: normal;
+  }
+
+  & h5:first-of-type{
+    margin-bottom: 8px;
+  }
+
 }

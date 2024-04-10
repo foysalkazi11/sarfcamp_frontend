@@ -1,0 +1,41 @@
+.inputContainer{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    position: relative;
+
+       &__errorMessage{
+        display: block;
+        position: absolute;
+        top: 100%;
+        padding-top: 0.5rem;
+        color: $error;
+        font-size: 1.4rem;
+    }
+}
+
+.input{
+        width: 100%;
+        border: none;
+        outline: none;
+        // height: 6.4rem;
+        // background-color: $light-brown;
+        // border-radius: 1.8rem;
+        // padding: 2rem;
+        font-size: 2rem;
+        &::placeholder{
+            font-size: 2rem;
+            color: $black;
+        }
+
+        &__beige{
+            background-color: $light-brown;
+            border-radius: 1.8rem;
+            padding: 2rem ;
+            height: 6.4rem;
+        }
+    }
+
+  

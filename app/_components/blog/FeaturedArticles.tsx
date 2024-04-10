@@ -47,9 +47,10 @@ const FeaturedArticlesCard = ({
   headline,
   isFeaturedArticle,
   slug,
+  href=""
 }: FeaturedArticlesCardProps) => {
   return (
-    <Link href={`/blog/${slug}`}>
+    <Link href={href ||`/blog/${slug}`}>
       <div className="featuredArticle__card">
         <img
           className="featuredArticle__image"
@@ -58,12 +59,13 @@ const FeaturedArticlesCard = ({
         />
 
         <div className="featuredArticle__info">
-          <h5 className="featuredArticle__title">{headline}</h5>
-          <div>
+          <h5 className="featuredArticle__title" >{headline}</h5>
+          <div >
             <p
               className={`copy-small featuredArticle__dateAndPrice ${
                 price ? "featuredArticle__dateAndPrice--weight700" : ""
               }`}
+              
             >
               {date}
             </p>

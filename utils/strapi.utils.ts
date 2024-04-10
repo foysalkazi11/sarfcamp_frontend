@@ -2,10 +2,10 @@ import axios from "axios";
 
 export const BASE_URL = process.env.STRAPI_URL || "http://127.0.0.1:1337";
 
-export async function fetchDataFormStrapi(route: string) {
+
+export async function fetchDataFormStrapi(route: string) : Promise<any>{
   try {
     const response = await axios.get(`${BASE_URL}${route}`);
-
     return response?.data?.data;
   } catch (error) {
     console.log(error);
@@ -69,3 +69,29 @@ export const extractImageUrl = (
   };
   return imaObj;
 };
+
+// arrange Single vent data 
+
+export const arrangeSingleVentData = (event:any) =>{
+  const {id,attributes} = event;
+    const image = attributes?.image?.data?.attributes;
+    return {
+      id: id,
+      ...attributes,
+       publishedAt: formatDate(attributes?.publishedAt),
+       startDate: formatDate(attributes?.startDate),
+      image: {
+        url: BASE_URL + image?.url,
+        hash: BASE_URL + image?.hash,
+      },
+    }
+}
+
+
+// arrange single event data 
+export const arrangeEventsData = (events:any[]) =>{
+  const eventsData = events.map(arrangeSingleVentData)
+
+  return eventsData;
+  
+}

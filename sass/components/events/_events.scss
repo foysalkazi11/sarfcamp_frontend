@@ -4,7 +4,7 @@
   &__currentEvent {
     width: 100%;
     display: flex;
-    gap: 9.4rem;
-    border: 1px salmon;
+    justify-content: space-between;
+    // border: 1px salmon;
   }
 }
