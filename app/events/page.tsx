@@ -17,7 +17,7 @@ const description =   <>
  <Markdown className="copy">
         Staying in touch with our website is your ticket to catching the wave of
         exciting upcoming events at our surfing school! By subscribing to our
-        updates, you'll be the first to know about: 
+        updates, you&apos;ll be the first to know about: 
       </Markdown>
       <Markdown className="copy">
          🏄‍♂️ Epic Surf Sessions: Get
@@ -27,7 +27,7 @@ const description =   <>
       <Markdown className="copy">
          🌊 Surfing
         Competitions: Stay informed about local and regional surf competitions,
-        where you can witness top talent and even participate if you're up for
+        where you can witness top talent and even participate if you&apos;re up for
         the challenge.
       </Markdown>
       <Markdown className="copy">
