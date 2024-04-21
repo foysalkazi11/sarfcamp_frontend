@@ -2,6 +2,13 @@ import axios from "axios";
 
 export const BASE_URL = process.env.NEXT_PUBLIC_STRAPI_URL || "http://127.0.0.1:1337";
 
+export const imageUrlFormat = (image:{[key : string]: string}) =>{
+  return  {
+        url: image?.url,
+        hash: image?.hash,
+      }
+}
+
 
 export async function fetchDataFormStrapi(route: string) : Promise<any>{
   try {
@@ -20,10 +27,7 @@ export function arrangeInfoBlockData(response: { [key: string]: any }) {
     return {
       id: infoBlock?.id,
       ...infoBlock?.attributes,
-      image: {
-        url: BASE_URL + image?.url,
-        hash: BASE_URL + image?.hash,
-      },
+      image: imageUrlFormat(image),
     };
   });
 
@@ -35,10 +39,7 @@ export function arrangeBlogData(response: { [key: string]: any }) {
     return {
       ...article?.attributes,
       id: article?.id,
-      featuredImage: {
-        url: BASE_URL + image?.url,
-        hash: image?.hash,
-      },
+      featuredImage: imageUrlFormat(image),
       date: formatDate(article?.attributes?.publishedAt),
     };
   });
@@ -57,19 +58,6 @@ export function formatDate(data: string) {
   return formattedDate;
 }
 
-export const extractImageUrl = (
-  imageData: any
-): {
-  hash: string;
-  url: string;
-} => {
-  const imaObj = {
-    hash: BASE_URL + imageData?.data?.attributes?.hash,
-    url: BASE_URL + imageData?.data?.attributes?.url,
-  };
-  return imaObj;
-};
-
 // arrange Single vent data 
 
 export const arrangeSingleVentData = (event:any) =>{
@@ -80,10 +68,7 @@ export const arrangeSingleVentData = (event:any) =>{
       ...attributes,
        publishedAt: formatDate(attributes?.publishedAt),
        startDate: formatDate(attributes?.startDate),
-      image: {
-        url: BASE_URL + image?.url,
-        hash: BASE_URL + image?.hash,
-      },
+      image: imageUrlFormat(image),
     }
 }
 

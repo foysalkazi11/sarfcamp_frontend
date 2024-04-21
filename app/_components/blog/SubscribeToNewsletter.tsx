@@ -2,6 +2,8 @@
 import axios from "axios";
 import React, { useState } from "react";
 
+const URL = process.env.NEXT_PUBLIC_STRAPI_URL+"/api/newsletter-signups"
+
 const SubscribeToNewsletter = () => {
   const [email, setEmail] = useState("");
   const [hasSignedUp, setHasSignedUp] = useState(false);
@@ -13,9 +15,7 @@ const SubscribeToNewsletter = () => {
     e.preventDefault();
     if (email.length) {
       try {
-        await axios.post(
-          (process.env.NEXT_PUBLIC_STRAPI_URL +
-            "/api/newsletter-signups") as string,
+        await axios.post(URL,
           {
             data: { email },
           }

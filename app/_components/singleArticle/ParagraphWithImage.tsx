@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { BASE_URL, extractImageUrl } from "@/utils/strapi.utils";
+import { imageUrlFormat } from "@/utils/strapi.utils";
 import React from "react";
 import Markdown from "react-markdown";
 
@@ -22,7 +22,7 @@ const ParagraphWithImage = ({
   isLandscape,
   paragraph,
 }: ParagraphWithImageProps) => {
-  const imaObj = extractImageUrl(image);
+  const imaObj = imageUrlFormat(image?.data?.attributes);
 
   return (
     <section

@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { extractImageUrl } from "@/utils/strapi.utils";
+import { imageUrlFormat } from "@/utils/strapi.utils";
 import React from "react";
 
 type LandscapeImageProps = {
@@ -15,7 +15,7 @@ const LandscapeImage = ({
   image,
   imageCaption,
 }: LandscapeImageProps) => {
-  const imaObj = extractImageUrl(image);
+  const imaObj = imageUrlFormat(image?.data?.attributes);
   return (
     <section className="articleComponentLandscapeImage">
       <img src={imaObj?.url} alt="img" />
